@@ -10,7 +10,7 @@ const Home = () => {
     const [cardData,setData] = useState([]);
     const navigate = useNavigate();
     useEffect(() =>{
-        axiosInstance.get('/api/blogs').then((res) =>{
+        axiosInstance.get('/blogs').then((res) =>{
             setData(res.data);
         }).catch((err)=>{
             console.log(err)
@@ -22,7 +22,7 @@ const Home = () => {
     }
 
     const delete_data = (id) => {
-        axiosInstance.delete(`/api/blogs/deleteblog/${id}`)
+        axiosInstance.delete(`/blogs/deleteblog/${id}`)
           .then(() => {
             setData(cardData.filter((item) => item._id !== id)); // Update the UI after deletion
             alert("Blog deleted successfully");

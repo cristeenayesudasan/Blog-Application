@@ -21,14 +21,14 @@ const Addblog = () => {
 
   const handleSubmit = async () => {
     if (location.state!=null) {
-      axiosInstance.put("/api/blogs/updateblog/"+location.state.val._id,form).then((res)=>{
+      axiosInstance.put("/blogs/updateblog/"+location.state.val._id,form).then((res)=>{
         alert(res.data);
         navigate('/blogs')
       })
     }
     else{
       try {
-        const response = await axiosInstance.post('/api/blogs/addblog', form);
+        const response = await axiosInstance.post('/blogs/addblog', form);
         alert(response.data);
         setForm({ title: '', description: '', imageurl: '' }); 
       } catch (error) {
